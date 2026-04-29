@@ -1,0 +1,85 @@
+:root {
+  --color1: rgb(255, 130, 92);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--color1);
+  background-image: url(/IMG/fondoTop.svg), url(../IMG/fondoBotton.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+}
+
+.conteiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: white;
+  max-width: 328px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.card-header {
+  width: 100%;
+  display: block;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(238, 134, 64);
+  padding: 20px;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.card-body-contentim {
+  border: 2px solid orange;
+  border-radius: 100px;
+  background-color: rgb(247, 183, 111);
+  padding: 10px;
+}
+.card-body-titlle {
+  margin-top: 2rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+.card-body-titlle span {
+  background-color: rgb(241, 219, 189);
+  border-radius: 3px;
+  margin: 5px 5px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-body-text {
+  background-color: rgb(241, 219, 189);
+  padding: 2px 4px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+}
+.card-footer-poder {
+  text-align: center;
+  margin-bottom: 2rem;
+}/*# sourceMappingURL=style.css.map */
