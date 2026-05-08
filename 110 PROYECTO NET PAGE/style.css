@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: black;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+  z-index: 100;
+}
+header .logo img {
+  max-width: 150px;
+}
+header .navigation {
+  display: flex;
+}
+header .navigation li {
+  list-style: none;
+  margin: 0 10px;
+}
+header .navigation li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+header .navigation li:hover a {
+  color: red;
+}
+header .search {
+  position: relative;
+  width: 300px;
+  height: 40px;
+}
+header .search input {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 0 20px 0 45px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+header .search input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+header .search input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+header .search input:focus {
+  width: 300px;
+  border-color: rgba(243, 0, 0, 0.5137254902);
+  box-shadow: 0 0 15px rgba(212, 44, 44, 0.438);
+  background: rgba(255, 255, 255, 0);
+}
+header .search ion-icon {
+  position: absolute;
+  left: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2em;
+  pointer-events: none;
+  bottom: 10px;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.banner .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+.banner .sombraimg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(90deg, rgba(34, 21, 21, 0.7) 10%, transparent 80%);
+  z-index: 2;
+  pointer-events: none;
+}
+.banner .content {
+  position: relative;
+  padding: 0 50px;
+  max-width: 550px;
+  z-index: 3;
+}
+.banner .content .movietitle {
+  max-width: 250px;
+}
+.banner .content h4 {
+  color: gray;
+  font-weight: 500;
+}
+.banner .content h4 span {
+  padding: 0 10px;
+  border-right: 2px solid rgb(175, 170, 170);
+}
+.banner .content h4 span:last-child {
+  border-right: none;
+}
+.banner .content h4 span i {
+  background: red;
+  color: white;
+  padding: 0 8px;
+  border-radius: 2px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.banner .content p {
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5em;
+  color: white;
+  margin: 10px 0 20px;
+}
+.banner .content .buttom {
+  position: relative;
+}
+.banner .content .buttom a {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: red;
+  color: white;
+  padding: 6px 20px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.banner .content .buttom a:nth-child(2) {
+  background: black;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.play {
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  cursor: pointer;
+  z-index: 3;
+  color: white;
+}
+.play img {
+  margin-right: 10px;
+  max-width: 50px;
+}
+
+.trailer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+.trailer.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.trailer video {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  outline: none;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+}
+.trailer .close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  max-width: 32px;
+  filter: invert(1);
+}
+@media (max-width: 991px) {
+  .trailer header {
+    padding: 20px 50px;
+    flex-direction: column;
+  }
+  .trailer .navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  .trailer .banner {
+    padding: 100px 50px;
+  }
+  .trailer .play {
+    left: 50px;
+    font-size: 1em;
+  }
+  .trailer .play img {
+    margin-right: 10px;
+    max-width: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .trailer header {
+    padding: 20px;
+  }
+  .trailer .search {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 40px;
+  }
+  .trailer .banner {
+    padding: 220px 20px 120px;
+  }
+  .trailer .play {
+    left: 20px;
+    font-size: 1em;
+    bottom: 30px;
+  }
+}/*# sourceMappingURL=style.css.map */

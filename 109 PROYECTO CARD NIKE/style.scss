@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body {
+  background: #0f172a;
+  min-height: 100vh;
+  margin: 0; // Buena práctica resetear el margin
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    position: relative;
+
+    .card {
+      background: #1e293b;
+      width: 320px;
+      height: 450px;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(110, 211, 211);
+        clip-path: circle(150px at 80% 20%);
+        transition: 0.5s ease-in-out;
+      }
+
+      // ESTADO HOVER
+      &:hover {
+        .imgbox {
+          top: 0%;
+          transform: translateY(0%);
+        }
+        .content {
+          height: 210px; // Aumentamos el alto para mostrar el botón
+          .size {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0.5s;
+          }
+          .color {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0.6s;
+          }
+          a {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0.75s;
+          }
+        }
+      }
+      // ESTADO HOVER BEFORE
+      &:hover::before {
+        clip-path: circle(300px at 80% -20%);
+      }
+      &::after {
+        content: "NIKE";
+        position: absolute;
+        top: 30%;
+        left: -20%;
+        font-size: 12em;
+        color: rgb(82, 80, 80);
+        font-weight: 800;
+        font-style: italic;
+        z-index: 0;
+      }
+
+      .imgbox {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 220px;
+        transform: translateY(-50%); // Centrado inicial
+        transition: 0.5s; // Faltaba la transición aquí
+        z-index: 100;
+        transition: 0.5s;
+        transform: translateY(-50%);
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 340px;
+          transform: translate(-50%, -50%) rotate(-10deg);
+        }
+      }
+
+      .content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px; // Altura inicial (solo muestra el título)
+        text-align: center;
+        transition: 1s; // Transición de la altura
+        z-index: 10;
+
+        h2 {
+          font-weight: 600;
+          letter-spacing: 1px;
+          color: white;
+          margin: 20px 0 10px;
+        }
+
+        .size,
+        .color {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 8px 20px;
+          transition: 0.5s;
+          color: antiquewhite;
+          opacity: 0;
+          visibility: hidden;
+
+          h3 {
+            color: white;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 10px;
+          }
+        }
+
+        .size span {
+          width: 26px;
+          height: 26px;
+          line-height: 24px;
+          font-size: 13px;
+          display: inline-block;
+          color: black;
+          background-color: white;
+          border-radius: 6px;
+          margin: 0 5px;
+          transition: 0.5s;
+          cursor: pointer;
+
+          &:hover {
+            background: orange;
+          }
+        }
+
+        .color span {
+          width: 20px;
+          height: 20px;
+          background: red;
+          border-radius: 50%;
+          margin: 0 5px;
+          cursor: pointer;
+
+          &:nth-child(2) {
+            background: green;
+          }
+          &:nth-child(3) {
+            background: purple;
+          }
+          &:nth-child(4) {
+            background: skyblue;
+          }
+        }
+
+        a {
+          display: inline-block;
+          padding: 10px 30px;
+          background: #2dd4bf;
+          border-radius: 4px;
+          margin-top: 10px;
+          color: #94a3b8;
+          font-weight: 600;
+          text-decoration: none;
+          opacity: 0; // Empezamos invisible
+          transform: translateY(50px); // Empezamos abajo
+          transition: 0.5s;
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
